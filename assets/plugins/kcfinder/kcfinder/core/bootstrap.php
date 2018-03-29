@@ -21,6 +21,15 @@
   */
 
 
+/////////////////////////// Are you logged in?
+define('IN_MANAGER_MODE', 'true');
+define('MODX_API_MODE', true);
+$self = 'assets/plugins/kcfinder/kcfinder/core/bootstrap.php'; //
+$base_path = str_replace($self, '', str_replace('\\','/', __FILE__));
+include_once("{$base_path}index.php");
+$result = $modx->getLoginUserID('mgr');
+if(empty($result)) $modx->sendRedirect('/');
+/////////////////////////
 // PHP VERSION CHECK
 if (!preg_match('/^(\d+\.\d+)/', PHP_VERSION, $ver) || ($ver[1] < 5.3))
     die("You are using PHP " . PHP_VERSION . " when KCFinder require at least version 5.3.0! Some systems has an option to change the active PHP version. Please refer to your hosting provider or upgrade your PHP distribution.");
