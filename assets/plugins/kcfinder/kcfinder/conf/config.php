@@ -58,7 +58,7 @@ $_CONFIG = array(
 // DISABLE / ENABLE SETTINGS
 
     'denyZipDownload' => false,
-    'denyUpdateCheck' => false,
+    'denyUpdateCheck' => true,
     'denyExtensionRename' => false,
 
 
