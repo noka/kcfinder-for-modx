@@ -136,7 +136,6 @@ if(!isset($modx))
 	$self = 'assets/plugins/kcfinder/kcfinder/conf/config.php'; // for 3.12 or later.
 	$base_path = str_replace($self, '', str_replace('\\','/', __FILE__));
 	include_once("{$base_path}manager/includes/config.inc.php");
-	startCMSSession();
 }
 if(2 < count(explode(':',$host))) $host = substr($host,0,strrpos(':',$host));
 

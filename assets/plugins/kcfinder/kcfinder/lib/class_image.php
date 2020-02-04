@@ -115,17 +115,16 @@ abstract class image {
             $height = $image->height;
             $img = $image->image;
 
-        } elseif (is_array($image)) {
-            list($key, $width) = each($image);
-            list($key, $height) = each($image);
-            $img = $this->getBlankImage($width, $height);
+          } elseif (is_array($image) && count($image) > 1) {
+              $width = $image[0];
+              $height = $image[1];
+              $img = $this->getBlankImage($width, $height);
 
-        } else
-            $img = $this->getImage($image, $width, $height);
-
-        return ($img !== false)
-            ? array($img, $width, $height)
-            : false;
+          } else
+              $img = $this->getImage($image, $width, $height);
+          return ($img !== false)
+              ? array($img, $width, $height)
+              : false;
     }
 
 
